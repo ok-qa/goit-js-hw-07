@@ -1,11 +1,11 @@
-import { galleryItems } from "/js/gallery-items.js";
+import { galleryItems } from "../js/gallery-items.js";
 // Change code below this line
 console.log(galleryItems);
 
 const gallery = document.querySelector(".gallery");
-gallery.innerHTML = makeGalleryMarkup(galleryItems);
+gallery.innerHTML = galleryMarkup(galleryItems);
 
-function makeGalleryMarkup(galleryItems) {
+function galleryMarkup(galleryItems) {
   return galleryItems
     .map(({ preview, original, description }) => {
       return `<li class="gallery__item">
