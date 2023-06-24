@@ -38,10 +38,17 @@ function openImg(evt) {
   instance.show();
 
   console.log(instance);
-  
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" || evt.keyCode === 27) {
+
+  const onEscKeyPress = function (e) {
+    const ESC_KEY_CODE = "Escape";
+    if (e.code === ESC_KEY_CODE) {
       instance.close();
+      window.removeEventListener("keydown", onEscKeyPress);
+       console.log("event listener removed");
     }
-  });
+  };
+  window.addEventListener("keydown", onEscKeyPress);
+  console.log("event listener added");
 }
+
+
